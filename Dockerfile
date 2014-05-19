@@ -5,7 +5,7 @@
 # Pull from Ubuntu
 
 
-FROM wmarinho/ubuntu:latest
+FROM ubuntu:latest
 
 MAINTAINER Wellington Marinho wpmarinho@globo.com
 
@@ -15,6 +15,9 @@ ENV INITRD No
 
 # apt config
 ADD 25norecommends /etc/apt/apt.conf.d/25norecommends
+
+# install ssh
+RUN apt-get install -y openssh-server
 
 # install openjdk7
 RUN apt-get install openjdk-7-jdk -y
