@@ -14,6 +14,11 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV INITRD No
 
 
+# apt config
+ADD 25norecommends /etc/apt/apt.conf.d/25norecommends
+
+# install openjdk7
+RUN apt-get install openjdk-7-jdk -y
 
 # upgrade distro
 RUN locale-gen en_US en_US.UTF-8
