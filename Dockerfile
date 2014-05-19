@@ -13,7 +13,8 @@ MAINTAINER Wellington Marinho wpmarinho@globo.com
 ENV DEBIAN_FRONTEND noninteractive
 ENV INITRD No
 
-
+# install ssh
+RUN apt-get install -y openssh-server
 
 # upgrade distro
 RUN locale-gen en_US en_US.UTF-8
