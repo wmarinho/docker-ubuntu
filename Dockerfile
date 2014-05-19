@@ -5,17 +5,13 @@
 # Pull from Ubuntu
 
 
-FROM ubuntu:latest
+FROM wmarinho/ubuntu:latest
 
 MAINTAINER Wellington Marinho wpmarinho@globo.com
 
 # avoid debconf and initrd
 ENV DEBIAN_FRONTEND noninteractive
 ENV INITRD No
-
-# install ssh
-RUN apt-get install -y openssh-server
-
 
 # apt config
 ADD 25norecommends /etc/apt/apt.conf.d/25norecommends
