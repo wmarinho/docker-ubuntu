@@ -13,6 +13,9 @@ MAINTAINER Wellington Marinho wpmarinho@globo.com
 ENV DEBIAN_FRONTEND noninteractive
 ENV INITRD No
 
+# install ssh
+RUN apt-get install -y openssh-server
+
 
 # apt config
 ADD 25norecommends /etc/apt/apt.conf.d/25norecommends
