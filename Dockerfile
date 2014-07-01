@@ -21,10 +21,19 @@ RUN locale-gen en_US en_US.UTF-8
 RUN apt-get update && apt-get upgrade -y \
         && apt-get install lsb-release -y
 
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:webupd8team/java -y
 
-# install openjdk-7
-RUN apt-get install openjdk-7-jdk -y \
-	&& echo "JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /etc/environment
+RUN apt-get update -y
+
+# automatically accept oracle license
+RUN echo "oracle-java7-installer shared/accepted-oracle-license-v1-1 boolean true" | debconf-set-selections
+
+
+# and install java 7 oracle jdk
+RUN apt-get -y install oracle-java7-installer \
+	&& update-alternatives --display java \
+	&& echo "JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /etc/environment
 
 # clean packages
 RUN apt-get clean \
