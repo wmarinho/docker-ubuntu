@@ -5,7 +5,7 @@
 # Pull from Ubuntu
 
 
-FROM ubuntu:latest
+FROM ubuntu:14.04
 
 MAINTAINER Wellington Marinho wpmarinho@globo.com
 
